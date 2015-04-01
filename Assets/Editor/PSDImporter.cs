@@ -76,8 +76,8 @@ public class CommonPSDImporter : Editor
         Canvas temp = Resources.Load (PSDImporterConst.PREFAB_PATH_CANVAS, typeof(Canvas)) as Canvas;
         Canvas canvas = GameObject.Instantiate (temp) as Canvas;
 
-        ReferenceResolution resolution = canvas.GetComponent<ReferenceResolution>();
-        resolution.resolution = new Vector2(psdUI.psdSize.width, psdUI.psdSize.height);
+        CanvasScaler resolution = canvas.GetComponent<CanvasScaler>();
+        resolution.referenceResolution = new Vector2(psdUI.psdSize.width, psdUI.psdSize.height);
         
         GameObject obj = new GameObject (baseFilename);
         obj.transform.parent = canvas.transform;
@@ -87,7 +87,7 @@ public class CommonPSDImporter : Editor
             DrawLayer (psdUI.layers [layerIndex], obj);
         }
         
-        canvas.renderMode = RenderMode.Overlay;
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         
         AssetDatabase.Refresh ();
         EditorApplication.SaveScene (scenePath);
