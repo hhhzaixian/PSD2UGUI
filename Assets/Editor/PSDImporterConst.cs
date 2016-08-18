@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class PSDImporterConst
-{    
+{
     public const string BASE_FOLDER = "UI/";
     public const string PNG_SUFFIX = ".png";
     public const string COMMON_BASE_FOLDER = "Assets/PSDExportMaterials/";
